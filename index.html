@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,900&display=swap"
+    rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Planet Earth Website</title>
+</head>
+
+<body>
+    <div id="background-image"></div>
+
+    <script>
+        // Get the div for the background image
+        var backgroundImage = document.getElementById('background-image');
+
+        // Calculate the total number of frames
+        var totalFrames = 15; // Adjust based on the total number of frames you have
+
+        // Preload frame images
+        var frameImages = [];
+        for (var i = 1; i <= totalFrames; i++) {
+            var frameImage = new Image();
+            frameImage.src = 'img/frame_' + (i.toString().padStart(2, '0')) + '_delay-0.07s' + '.gif';
+            frameImages.push(frameImage);
+        }
+        //frame_00_delay-0.07s
+        backgroundImage.style.backgroundImage = 'url(' + frameImages[0].src + ')';
+
+        // Listen for scroll events
+        window.addEventListener('scroll', function () {
+            // Calculate the percentage of scroll position
+            var scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+
+            // Calculate the frame to display based on scroll position
+            var frameIndex = Math.floor(scrollPercent * totalFrames);
+            frameIndex = Math.max(0, Math.min(totalFrames - 1, frameIndex)); // Ensure frameIndex is within bounds
+
+            // Get the preloaded frame image
+            var frameImage = frameImages[frameIndex];
+
+            // Update the background image with the current frame
+            backgroundImage.style.backgroundImage = 'url(' + frameImage.src + ')';
+        });
+    </script>
+    <h1>koi.earth</h1>  
+    <img src="img/koi.png" alt="Planet Earth Globe" style="padding: 0%; max-width: 40%; max-height: 40%;">
+    <p class="description">environmental communications, storytelling, environmental copywriting, multimedia journalism, climate change, and impact</p>
+    <a class="button" href="mailto:youremail@example.com">Send email</a>
+    <div class="banner" style="background-image: url('img/koi.jpg');">
+        <p>Portfolio</p>
+    </div>
+    <div class="frameworks">
+        <a href="https://www.501cthree.org/" class="framework">
+            <img href="https://www.501cthree.org/" src="img/wbox.jpg" alt="Framework 1">
+            <div class="framework-overlay">
+                Framework 1 Description
+            </div>
+        </a>
+        <a href="https://www.501cthree.org/" class="framework">
+            <img src="img/wbox.jpg" alt="Framework 2">
+            <div class="framework-overlay">
+                Framework 2 Description
+            </div>
+        </a>
+        <a href="https://www.501cthree.org/" class="framework">
+            <img src="img/wbox.jpg" alt="Framework 3">
+            <div class="framework-overlay">
+                Framework 3 Description
+            </div>
+        </a>
+       
+    </div>
+        <div id="projects-section" class="projects-section">
+        <div class="projects-background-overlay">
+            <h2 class="projects-title">things I have written
+            </h2>
+            <hr class="section-divider">
+            <div class="image-slider">
+                <div class="slider">
+                    <a href="project1.html"><img src="img/koi.jpg" alt="Project 1"></a>
+                    <a href="project2.html"><img src="img/wbox.jpg" alt="Project 2"></a>
+                    <a href="project3.html"><img src="img/koi.jpg" alt="Project 3"></a>
+                    <a href="project4.html"><img src="img/wbox.jpg" alt="Project 4"></a>
+                    <a href="project5.html"><img src="img/wbox.jpg" alt="Project 5"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="about-section" class="about-section">
+      <div class="about-content">
+        <div class="about-text">
+            <h2 class="about-title">About Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismodLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismodLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismodLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismodLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismodLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+                faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismodLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elit ut purus euismod
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="img/koi.jpg" alt="About Me Image">
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
