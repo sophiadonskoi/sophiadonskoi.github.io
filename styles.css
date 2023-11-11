@@ -126,7 +126,7 @@ img {
   background-image: url("img/koi.jpg");
   background-size: cover;
   background-position: center;
-  color: orange;
+  color: white;
   text-align: center;
   padding: 2% 0;
   font-family: "EB Garamond", serif;
@@ -287,33 +287,32 @@ img {
 
 
 .about-content {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
-    grid-column-gap: 20px; /* Adjust the gap between columns */
-    width: 100%;
-    max-width: 80%;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  grid-column-gap: 20px; /* Adjust the gap between columns */
+  width: 100%;
+  max-width: 80%;
 }
 
 .about-text {
-    text-align: left;
-    font-family: "EB Garamond", serif;
-    font-weight: 400;
-    color: orange;
-    font-size: 24px;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 0
+  text-align: left;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  color: orange;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 0
 }
 
 .about-image {
-      background-color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-      /* Set the height to 100% */
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
 }
 .about-image img {
   width: 100%;
@@ -321,5 +320,4 @@ img {
   max-height: 100%;
   object-fit: cover;
   margin-top: 0;
-  /* Adjust this value as needed */
 }
