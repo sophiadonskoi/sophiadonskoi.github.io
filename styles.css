@@ -148,31 +148,42 @@ img {
 
 .frameworks {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   font-family: "EB Garamond", serif;
   font-weight: 400;
-  align-items: center;
-  margin: 0px auto;
-  max-width: 100%;
+  margin: 0 auto;
 }
 
 .framework {
+  width: 70vw;
+  height: 55vh;
+  overflow: hidden;
   position: relative;
-    width: 50%;
-    height: auto;
-    overflow: hidden;
-    text-align: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
-
 
 .framework img {
   width: 100%;
-  filter: none;
   height: 100%;
   object-fit: cover;
+  /* Crop the image to fit the specified dimensions */
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .framework {
+      width: 90vw;
+      height: 50vh;
+      overflow: hidden;
+      margin: 1%;
+      position: relative;
+    }
+  .framework img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
 }
 
 .framework:hover img {
@@ -252,27 +263,15 @@ img {
 }
 
 .slider img {
-  max-width: 100%;
   height: auto;
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 80%;
   transition: transform 0.3s ease;
 }
 
 .slider a:hover img {
   transform: scale(1.1);
-}
-
-.slider-navigation {
-  display: flex;
-  position: absolute;
-  top: 60%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  justify-content: space-between;
-  z-index: 2;
 }
 
 
@@ -285,14 +284,13 @@ img {
   margin: 0 auto;
 }
 
-
 .about-content {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal-width columns */
-  grid-column-gap: 20px; /* Adjust the gap between columns */
+  grid-column-gap: .05%; /* Adjust the gap between columns */
   width: 100%;
-  max-width: 80%;
+  max-width: 96%;
 }
 
 .about-text {
@@ -300,7 +298,7 @@ img {
   font-family: "EB Garamond", serif;
   font-weight: 400;
   color: orange;
-  font-size: 24px;
+  font-size: 130%;
   background-color: rgba(255, 255, 255, 0.5);
   padding-right: 10px;
   padding-left: 10px;
@@ -320,4 +318,22 @@ img {
   max-height: 100%;
   object-fit: cover;
   margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    order: 2;
+  }
+
+.about-image {
+  order: 1;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+}
 }
