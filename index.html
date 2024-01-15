@@ -9,8 +9,10 @@
 </head>
 
 <body>
-    <div id="background-image"></div>
-
+    <div id = "#background-container">
+        <div id="background-image"></div>
+        <div id="background-sliv"></div>
+    </div>
     <script>
         // Get the div for the background image
         var backgroundImage = document.getElementById('background-image');
@@ -44,10 +46,16 @@
             backgroundImage.style.backgroundImage = 'url(' + frameImage.src + ')';
         });
     </script>
-    <h1>koi.earth</h1>  
-    <img src="img/koi.png" style="padding: 0%; max-width: 40%; max-height: 40%;">
-    <p class="description">environmental communications, storytelling, environmental copywriting, multimedia journalism, climate change, and impact</p>
-    <a class="button" href="mailto:sophiadonskoi@gmail.com">Send email</a>
+<!-- <div style="background-color: rgba(255, 255, 255, 0.5); padding: 2%; box-sizing: border-box; max-width: 90%; margin: 0 auto;"> -->
+    <div style="padding: 2%; box-sizing: border-box; max-width: 90%; margin: 0 auto;">
+    
+    <h1>koi.earth</h1>
+    <h3>sophia donksoi</h3>
+        <img src="img/koi.png" style="max-width: 40%; max-height: 40%;">
+        <p class="description">environmental communications, storytelling, environmental copywriting, multimedia journalism, climate change, and impact</p>
+        <a class="button" href="mailto:sophiadonskoi@gmail.com">send email</a>
+    </div>  
+
     <div class="banner" style="background-image: url('img/koi.jpg');">
         <p>portfolio</p>
     </div>
@@ -88,35 +96,41 @@
             <div class="image-slider">
                 <div class="slider">
                 
-                    <a href="https://rachelcarsoncouncil.org/greenwashers-stop-trying-recruit-gen-z/"><img src="img/green.jpg" alt="Project 1"></a>
+                    <a href="https://rachelcarsoncouncil.org/greenwashers-stop-trying-recruit-gen-z/" class = "slider">
+                        <img src="img/green.jpg" alt="Project 1">
+                    </a>
                     <a href="https://docs.google.com/document/d/1zLPAvvxSrmwrLEXy_UpTO3lxl1GiZ_MFA4__wxWygA4/edit?usp=sharing "><img src="img/lots.gif" alt="Project 2"></a>
                     <a href="https://docs.google.com/document/d/1KVxFeZD3MS-5Gk-PddN7k9XTTSKNfMDlhPTJwfJZjcs/edit?usp=sharing"><img src="img/EnvironmentalSin.jpg" alt="Project 3"></a>
-
+                    
                 </div>
             </div>
 
         </div>
     </div>
-    <div id="about-section" class="about-section">
-      <div class="about-content">
+<div id="about-section" class="about-section">
+    <div class="about-content">
         <div class="about-text">
             <h2 class="about-title">About Me</h2>
-            <p>I’m a master’s candidate focused on climate communication at the University of Florida. I graduated from UCLA, summa cum
-            laude, with a B.A. in Public Policy and Environmental Systems and Society. I served as the Communications Lead for Jaden
-            Smith’s environmental nonprofit, 501CTHREE.org from 2020-2023, and prior to that, was the Assistant General Manager of
-            UCLA Radio, a student-run nonprofit, where I produced several environmental radio programs.
-            
-            I have been a journalist from my elementary school’s morning announcements through college radio production. I am
-            experienced in public interest communications, social impact, writing, multimedia storytelling, audio production, story
-            development, and scientific and technical communication.
-            
-            I am a first-generation American who speaks fluent Portuguese, Russian, and English. In my free time, I love drinking
-            matcha, spending time with loved ones (that includes my cat, Framboesa), and kayaking.
-            
-            In 2021-2023, I was recognized by the Aspen Institute as one of 100 Future Climate Leaders, and am also a Rachel Carson
-            Council Fellow and a Florida Climate Institute Fellow. I have written speeches for Jaden Smith and Al Gore, and produced
-            content for Complex, Apple TV, YouTube, and NowThis. In the future, I hope to broaden my impact as a professor of
-            Environmental Communications, teaching others how to effectively tell empowering stories about our environment.
+            <p>
+I’m a master’s candidate focused on climate communication at the University of Florida. I graduated from UCLA, summa cum
+laude, with a B.A. in Public Policy and Environmental Systems and Society. I served as the Communications Lead for Jaden
+Smith’s environmental nonprofit, 501CTHREE.org from 2020-2023, and prior to that, was the Assistant General Manager of
+UCLA Radio, a student-run nonprofit, where I produced several environmental radio programs.
+            </p>
+            <p>
+I have been a journalist from my elementary school’s morning announcements through college radio production. I am
+experienced in public interest communications, social impact, writing, multimedia storytelling, audio production, story
+development, and scientific and technical communication.
+            </p>
+            <p>
+I am a first-generation American who speaks fluent Portuguese, Russian, and English. In my free time, I love drinking
+matcha, spending time with loved ones (that includes my cat, Framboesa), and kayaking.
+            </p>
+            <p>
+In 2021-2023, I was recognized by the Aspen Institute as one of 100 Future Climate Leaders, and am also a Rachel Carson
+Council Fellow and a Florida Climate Institute Fellow. I have written speeches for Jaden Smith and Al Gore, and produced
+content for Complex, Apple TV, YouTube, and NowThis. In the future, I hope to broaden my impact as a professor of
+Environmental Communications, teaching others how to effectively tell empowering stories about our environment.
             </p>
         </div>
         <div class="about-image">
@@ -124,6 +138,8 @@
         </div>
     </div>
 </div>
+
+
 <script src="script.js"></script>
 </body>
 
