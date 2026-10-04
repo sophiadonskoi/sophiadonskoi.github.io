@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio · Sophia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond">
+    <link rel="stylesheet" href="studio.css">
+</head>
+
+<body>
+    <!-- Same sky as the main site -->
+    <div id="background-image" aria-hidden="true"></div>
+
+    <!-- Quiet links floating in the clouds -->
+    <a class="cloud-link cloud-home" href="../">koi.earth</a>
+    <span class="cloud-link cloud-here" aria-current="page">studio</span>
+
+    <main class="feed" aria-label="Studio videos">
+
+        <!-- ===== CASA ===== -->
+        <article class="post" aria-label="Casa">
+            <div class="reel">
+                <video class="reel-video" src="vids/casa.mp4#t=0.1" muted loop playsinline preload="auto"></video>
+                <button class="reel-sound" type="button" aria-label="Turn sound on" aria-pressed="false">
+                    <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg>
+                    <svg class="icon-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 010 7M19.5 6a8.5 8.5 0 010 12"/></svg>
+                </button>
+            </div>
+            <div class="post-text">
+                <h2 class="post-title">Let's work together</h2>
+                <p class="post-body">I produce content that is shot and filmed in the snappy, earthy style that my audience loves most. I love to highlight
+                local restaurants, sustainable brands, and travel destinations. I love my community, so I can work with any budget.
+                Swipe to see some of my work!</p>
+            </div>
+        </article>
+
+        <!-- ===== SAUNA ===== -->
+        <article class="post" aria-label="Sauna">
+            <div class="reel">
+                <video class="reel-video" src="vids/sauna.mp4#t=0.1" muted loop playsinline preload="auto"></video>
+                <button class="reel-sound" type="button" aria-label="Turn sound on" aria-pressed="false">
+                    <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg>
+                    <svg class="icon-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 010 7M19.5 6a8.5 8.5 0 010 12"/></svg>
+                </button>
+            </div>
+            <div class="post-text">
+                <h2 class="post-title">As a creator local to North Florida, I offer:</h2>
+                <ul class="post-list">
+                    <li>Incorporation into my Florida-core lifestyle content</li>
+                    <li>Content that’s filmed, edited, and packaged for your business to post on its own accounts</li>
+                    <li>Collaboration UGC posts on Instagram with my account, <strong>koi.earth</strong>, crossposted to TikTok</li>
+                    <li>Social media strategy consulting and retainer agreements</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ===== MAXXING ===== -->
+        <article class="post" aria-label="Maxxing">
+            <div class="reel">
+                <video class="reel-video" src="vids/maxxing.mp4#t=0.1" muted loop playsinline preload="auto"></video>
+                <button class="reel-sound" type="button" aria-label="Turn sound on" aria-pressed="false">
+                    <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg>
+                    <svg class="icon-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 010 7M19.5 6a8.5 8.5 0 010 12"/></svg>
+                </button>
+            </div>
+            <div class="post-text">
+                <h2 class="post-title">If you are a business owner in Gainesville who would like to work with me:</h2>
+                <p class="post-body">reach out to koiearthcomms@gmail.com with your ideas!</p>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Up / down arrows, like Facebook Reels (desktop only) -->
+    <nav class="feed-arrows" aria-label="Move between videos">
+        <button class="feed-up" type="button" aria-label="Previous video">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <button class="feed-down" type="button" aria-label="Next video">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+    </nav>
+
+    <script src="studio.js"></script>
+</body>
+</html>

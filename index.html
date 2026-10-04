@@ -9,6 +9,18 @@
 </head>
 
 <body>
+    <!-- The only addition to this page: a subtle "studio" link floating in the clouds, top right -->
+    <style>
+        .cloud-link{position:fixed;top:18px;right:calc(5% + 18px);z-index:20;padding:10px 20px;font-family:"EB Garamond",serif;font-size:1.3rem;letter-spacing:.08em;color:rgba(81,51,141,.7);text-decoration:none;text-shadow:0 0 10px rgba(255,255,255,.95),0 0 22px rgba(255,255,255,.8);transition:color .6s ease;animation:cloud-drift 8s ease-in-out infinite}
+        .cloud-link::before{content:"";position:absolute;inset:-4px -18px;z-index:-1;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,255,255,.75) 0%,rgba(255,255,255,.35) 45%,rgba(255,255,255,0) 72%);filter:blur(6px);opacity:.8;transition:opacity .6s ease}
+        .cloud-link:hover,.cloud-link:focus-visible{color:rgb(81,51,141)}
+        .cloud-link:hover::before,.cloud-link:focus-visible::before{opacity:1}
+        @keyframes cloud-drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-3px,4px)}}
+        @media (max-width:600px){.cloud-link{top:10px;right:calc(5% + 6px);font-size:1.1rem}}
+        @media (prefers-reduced-motion:reduce){.cloud-link{animation:none}}
+    </style>
+    <a class="cloud-link" href="studio/">studio</a>
+
     <div id = "#background-container">
         <div id="background-image"></div>
         <div id="background-sliv"></div>

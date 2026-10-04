@@ -1,0 +1,333 @@
+/* Studio page — matches the main site's sky, Garamond and purple */
+
+:root {
+  --purple: rgb(81, 51, 141);
+  --purple-soft: rgba(81, 51, 141, 0.7);
+
+  /* Vertical video (9:16), running the full height of the screen.
+     The text box is the exact same size. If the window is too narrow for both,
+     they shrink together (still 9:16). */
+  --screen-h: 100vh;
+  --card-w: min(calc(var(--screen-h) * 9 / 16), calc(50vw - 64px));
+  --card-h: calc(var(--card-w) * 16 / 9);
+  }
+
+@supports (height: 100svh) { :root { --screen-h: 100svh; } }
+
+
+/* The page itself doesn't scroll; the feed moves one post at a time (like Reels) */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #c9cbdc;
+  font-family: "EB Garamond", serif;
+  color: var(--purple);
+}
+
+/* The one and only background: a still sky (no longer changes as you scroll) */
+#background-image {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background-image: url("../img/frame_01_delay-0.07s.gif");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------- links floating in the clouds ---------- */
+.cloud-link {
+  position: fixed;
+  top: 18px;
+  z-index: 20;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--purple-soft);
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 22px rgba(255, 255, 255, 0.8);
+  transition: color 0.6s ease;
+  animation: cloud-drift 8s ease-in-out infinite;
+}
+
+.cloud-link::before {
+  content: "";
+  position: absolute;
+  inset: -4px -18px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 45%, rgba(255, 255, 255, 0) 72%);
+  filter: blur(6px);
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.cloud-home { left: 24px; animation-delay: -4s; }
+.cloud-here { right: 24px; color: var(--purple); }
+
+a.cloud-link:hover,
+a.cloud-link:focus-visible { color: var(--purple); }
+a.cloud-link:hover::before,
+a.cloud-link:focus-visible::before { opacity: 1; }
+
+@keyframes cloud-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-3px, 4px); }
+}
+
+/* ---------- the feed ----------
+   The feed is one tall strip of posts. JS moves it with your finger / mouse,
+   then lets it glide into place, like Facebook Reels. */
+.feed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  touch-action: none;          /* JS handles every drag */
+  will-change: transform;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.feed.is-dragging { cursor: grabbing; }
+
+.post {
+  position: relative;
+  height: var(--screen-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* ---------- video (left) ---------- */
+.reel {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--card-w);
+  height: var(--card-h);
+  overflow: hidden;
+  background: #000;
+}
+
+.reel-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.reel-sound {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.reel-sound::after { content: ""; position: absolute; inset: -6px; }
+
+.reel-sound svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.reel-sound .icon-sound,
+.reel-sound[aria-pressed="true"] .icon-muted { display: none; }
+.reel-sound[aria-pressed="true"] .icon-sound { display: block; }
+
+/* ---------- text box (right): exactly the video's size ---------- */
+.post-text {
+  flex: 0 0 auto;
+  width: var(--card-w);
+  height: var(--card-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.post-title {
+  margin: 0 0 16px;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.post-body {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+/* ---------- up / down arrows (desktop only) ---------- */
+.feed-arrows {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transform: translateY(-50%);
+}
+
+.feed-arrows button {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgba(81, 51, 141, 0.55);
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.feed-arrows button:hover { background: rgba(255, 255, 255, 0.85); border-color: var(--purple); }
+.feed-arrows button:active { transform: scale(0.94); }
+.feed-arrows button:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+.feed-arrows button[disabled] { opacity: 0.35; cursor: default; }
+
+.feed-arrows svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--purple);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* No arrows on phones or tablets: you swipe instead */
+@media (max-width: 900px), (hover: none) {
+  .feed-arrows { display: none !important; }
+  .feed { cursor: auto; }
+}
+
+/* Phones: the video fills the whole screen like Reels,
+   and the text box sits over the bottom of it */
+@media (max-width: 600px) {
+  :root { --card-w: 100vw; --card-h: var(--screen-h); }
+  .cloud-link { top: 10px; font-size: 1.1rem; }
+  .cloud-home { left: 8px; }
+  .cloud-here { right: 8px; }
+  .post-text {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 28px;
+    width: auto;
+    height: auto;
+    max-height: 40%;
+    padding: 20px;
+    justify-content: flex-start;
+    border-radius: 10px;
+  }
+  .post-title { font-size: 1.6rem; margin-bottom: 10px; }
+  .post-body { font-size: 1.05rem; }
+  .reel-sound { bottom: auto; top: 56px; right: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud-link { animation: none; }
+}
+
+/* ---------- list of offerings in the text box ---------- */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.post-list li {
+  position: relative;
+  padding: 12px 0 12px 22px;
+  border-top: 1px solid rgba(81, 51, 141, 0.18);
+}
+
+.post-list li:last-child {
+  border-bottom: 1px solid rgba(81, 51, 141, 0.18);
+}
+
+/* small purple dot instead of a dash */
+.post-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 21px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--purple);
+  opacity: 0.7;
+}
+
+.post-list strong {
+  font-weight: 600;
+}
+
+/* a longer heading needs to be a little smaller to sit well above the list */
+.post-text:has(.post-list) .post-title {
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 600px) {
+  .post-list {
+    font-size: 0.98rem;
+  }
+
+  .post-list li {
+    padding: 8px 0 8px 18px;
+  }
+
+  .post-list li::before {
+    top: 15px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .post-text:has(.post-list) .post-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .post-text:has(.post-list) {
+    max-height: 55%;
+  }
+}
